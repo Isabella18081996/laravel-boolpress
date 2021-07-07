@@ -24,16 +24,23 @@ class PostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title'=> 'required|max:10',
-            'content'=> 'required|min:3'
+            'title' => 'required|max:255',
+            'content' => 'required|min:3',
+            'category_id' => 'nullable|exists:categories,id',
+            //'tags' => 'nullable|exists:tags,id'
         ];
     }
+
     public function messages(){
-        return[
-            'title.required'=>'Il titolo è un campo obbligatorio',
-            'content.required'=>'Il contenuto è un campo obbligatorio',
-            'content.min'=>'Il testo del contenuto deve avere almeno :min caratteri',
-            'title.max'=>'Il testo del titolo deve avere massimo :max caratteri',
+
+        return [
+            'title.required' => 'Il titolo è un campo obbligatorio!',
+            'title.max' => 'Sono consentiti al massimo :max caratteri',
+            'content.min' => 'Sono consentiti al minimo :min caratteri',
+            'content.required' => 'Il contenuto è un campo obbligatorio!',
+            'category_id.exists' => 'La categoria scelta non è peresente',
+            //'tags.exists' => 'Il tag schelto  non è peresente'
         ];
+
     }
 }
