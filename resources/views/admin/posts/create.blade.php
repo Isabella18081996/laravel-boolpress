@@ -56,7 +56,7 @@
                 @enderror
             </div>
 
-{{--             <div class="mb-3">
+            <div class="mb-3">
                 <h5>Tag</h5>
                 @foreach($tags as $tag)
                     <span class="d-inline-block mr-3">
@@ -72,7 +72,7 @@
                 @error('tags')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
-            </div> --}}
+            </div>
 
             <div>
                 <button class="btn btn-primary" type="submit">Invio</button>
